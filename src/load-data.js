@@ -130,7 +130,7 @@ const sectorsAndIndustriesData = {
 function buildOptgroup(name) {
   const optGroup = document.createElement('optgroup')
   optGroup.setAttribute('label', name)
-  return optGroup
+  return optGroup;
 }
 
 function buildIndustryHTMLString(industryName) {
