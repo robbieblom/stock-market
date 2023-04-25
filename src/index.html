@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Market</title>
     <link rel="stylesheet" href="./style.css"/>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js"></script>
 </head>
 <body>
     <div class="app-background"></div>
@@ -19,6 +19,7 @@
                 Average Open Price for each stock for that industry in the S&P 500 </i>
         </div>
 
+        <!-- getTickerMetrics -->
         <form action="" class="ticker-form">
             <div class="industry-selector">
                 <label for="industry-selector">Industry</label>
@@ -48,7 +49,14 @@
         </div>
 
     </div>
-
-<script src="./load-data.js"></script>
+    <!-- <script type="text/javascript">
+        async function main(){
+          let pyodide = await loadPyodide();
+        }
+        main();
+    </script> -->
+<!-- <script src="./test.js"></script> -->
+<script src="./populate-industry-options.js"></script>
+<!-- <script src="./get-ticker-metrics.js"></script> -->
 </body>
 </html>
