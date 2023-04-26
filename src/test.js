@@ -1,28 +1,14 @@
-async function main() {
-  // configure pyodide
+async function getPythonEnvironment() {
   let pyodide = await loadPyodide();
-  pyodide.pyimport('SPProcessing')
+  await pyodide.loadPackage("micropip");
+  const micropip = pyodide.pyimport("micropip");
+  await micropip.install('stock-market-bytetheory');
+  return pyodide
+}
 
-  // populate industry dropdown
-  pyodide.runPython(`
-    import SPProcessing.TickerData.TickerData as TickerData
-    print(TickerData)
-    # tTree = TickerTree("SP_500.xml")
-
-  `)
-
-  // load tickerData
-  const tickerData = pyodide.runPython(`
-    import SPProcessing.TickerData.TickerData as TickerData
-    # tickerData = TickerData("SP500_ind.csv")
-    # tickerData.read_data()
-    # return tickerData
-    print(TickerData)
-  `)
-
-  console.log(pyodide.runPython(`
-      import sys
-      sys.version
-  `));
+async function main() {
+//   const pythonResponse = await pyodide.runPython(`
+//     print(marketHistory)
+//   `) 
 };
 main();
