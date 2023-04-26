@@ -4,17 +4,17 @@ function buildSectorGroupHMTLElement(sectorName) {
   return sectorGroupElement;
 }
 
-function buildHTMLForIndustryList(industryList) {
+function buildHTMLForIndustryList(industryList, sector) {
   let html = "";
   for (let industry of industryList) {
-    html += `<option value="${industry}"> ${industry} </option>`;
+    html += `<option value="${industry}|${sector}"> ${industry} </option>`;
   }
   return html;
 }
 
 function buildHTMLElement(sector, industryList) {
   const sectorGroupHTMLElement = buildSectorGroupHMTLElement(sector);
-  const htmlForIndustryList = buildHTMLForIndustryList(industryList);
+  const htmlForIndustryList = buildHTMLForIndustryList(industryList, sector);
   sectorGroupHTMLElement.innerHTML += htmlForIndustryList;
   return sectorGroupHTMLElement;
 }
@@ -39,15 +39,7 @@ function bindSectorsAndIndustriesDataToUI(sectorsAndIndustriesData) {
   }
 }
 
-async function getPythonEnvironment() {
-  let pyodide = await loadPyodide();
-  await pyodide.loadPackage("micropip");
-  const micropip = pyodide.pyimport("micropip");
-  await micropip.install("stock-market-bytetheory");
-  return pyodide;
-}
-
-function transformPythonResponseToJS(pythonResponse) {
+function transformPythonSectorsAndIndustriesResponseToJS(pythonResponse) {
   const mapFormOfSectorsAndIndustriesData = pythonResponse.toJs();
   const objectFormOfSectorsAndIndustriesData = Object.fromEntries(
     mapFormOfSectorsAndIndustriesData
@@ -56,14 +48,14 @@ function transformPythonResponseToJS(pythonResponse) {
 }
 
 async function getAllSectorsAndIndustries() {
-  let pyodide = await getPythonEnvironment();
+  let pyodide = await pythonReadyPromise;
   const pythonResponse = await pyodide.runPython(`
     from stock_market_bytetheory import SP500History
 
     marketHistory = SP500History()
     marketHistory.getAllSectorsAndIndustries()
   `);
-  return transformPythonResponseToJS(pythonResponse);
+  return transformPythonSectorsAndIndustriesResponseToJS(pythonResponse);
 }
 
 async function populateIndustryOptions() {
