@@ -1,22 +1,31 @@
+:root {
+  --font-family: Heebo, sans-serif;
+  --primary-main: #ffc400;
+  --primary-contrastText: #fff;
+  --text-secondary: #afc2cb;
+  --common-black: #000;
+  --common-white: #fff;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--font-family);
 }
 
 .app {
   padding: 50px;
-  background-color: white;
+  background-color: var(--common-white);
   border-radius: 35px;
-  border: 0.3px solid black;
-  box-shadow: 0 0 80px black;
+  border: 0.3px solid var(--common-black);
+  box-shadow: 0 0 80px var(--common-black);
   width: 67%;
-  position: absolute;
+  /* position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%; */
+  transform: translate(0%, 50%);
 }
 
 .title {
@@ -35,7 +44,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   padding-bottom: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--common-black);
 }
 
 .ticker-form div {
@@ -61,11 +70,11 @@ body {
   height: 33px;
   width: 50px;
   font-weight: bold;
-  color: white;
-  background-color: darkslategray;
-  /* border: 1px solid black; */
+  color: var(--common-white);
+  background-color: var(--primary-main);
+  /* border: 1px solid var(--common-black); */
   border: none;
-  box-shadow: 0px 0px 3px black;
+  box-shadow: 0px 0px 3px var(--common-black);
   border-radius: 10px;
 }
 
@@ -80,8 +89,8 @@ body {
 
 .results .result {
   margin: 15px 5px 15px 5px;
-  /* border: 1px solid black; */
-  box-shadow: 0 0 4px black;
+  /* border: 1px solid var(--common-black); */
+  box-shadow: 0 0 4px var(--common-black);
   border-radius: 10px;
   display: flex;
   align-items: center;
