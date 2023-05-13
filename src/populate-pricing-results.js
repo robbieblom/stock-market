@@ -1,6 +1,6 @@
 function buildHTMLString(ticker) {
   const html = `
-    <div class="result">
+  <div class="result">
     <div class="result-field ticker-symbol">${ticker["ticker"]}</div>
     <div class="result-field weighted-avg-price">
       <div class="result-label">WAP</div>

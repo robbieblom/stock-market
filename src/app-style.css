@@ -31,6 +31,7 @@ body {
   box-shadow: 0 0 2rem var(--common-black);
   width: 75%;
   height: 70%;
+  min-height: 340px;
 }
 
 .title {
@@ -90,6 +91,7 @@ body {
   min-height: 150px;
   flex-grow: 1;
   overflow: auto;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -97,6 +99,8 @@ body {
 }
 
 .results .result {
+  width: 200px;
+  height: 41px;
   margin: 15px 5px 15px 5px;
   box-shadow: 0 0 4px var(--common-black);
   border-radius: 10px;
