@@ -9,34 +9,36 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js"></script>
   </head>
   <body>
-    <div class="app">
-      <h1 class="title">View Prices</h1>
+    <div class="container">
+      <div class="app">
+        <h1 class="title">View Prices</h1>
 
-      <div class="description">
-        <i
-          >Select an industry to view Weight Average Price (WAP) and Average
-          Open Price for each stock for that industry in the S&P 500
-        </i>
+        <div class="description">
+          <i
+            >Select an industry to view Weight Average Price (WAP) and Average
+            Open Price for each stock for that industry in the S&P 500
+          </i>
+        </div>
+
+        <form
+          action=""
+          class="ticker-form"
+          onsubmit="populatePricingResults(event)"
+        >
+          <div class="industry-selector">
+            <label for="industry-selector">Industry</label>
+            <select name="industry-selector" id="industry-selector">
+              <option value="" selected>Select an Industry</option>
+            </select>
+          </div>
+
+          <div class="go-button">
+            <button type="submit">Go!</button>
+          </div>
+        </form>
+
+        <div class="results" id="results"></div>
       </div>
-
-      <form
-        action=""
-        class="ticker-form"
-        onsubmit="populatePricingResults(event)"
-      >
-        <div class="industry-selector">
-          <label for="industry-selector">Industry</label>
-          <select name="industry-selector" id="industry-selector">
-            <option value="" selected>Select an Industry</option>
-          </select>
-        </div>
-
-        <div class="go-button">
-          <button type="submit">Go!</button>
-        </div>
-      </form>
-
-      <div class="results" id="results"></div>
     </div>
 
     <script src="./load-python.js"></script>

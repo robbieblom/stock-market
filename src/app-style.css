@@ -15,17 +15,22 @@ body {
   font-family: var(--font-family);
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
 .app {
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 30px;
   background-color: var(--common-white);
   border-radius: 35px;
-  border: 0.3px solid var(--common-black);
-  box-shadow: 0 0 80px var(--common-black);
-  width: 67%;
-  /* position: absolute;
-  top: 50%;
-  left: 50%; */
-  transform: translate(0%, 50%);
+  box-shadow: 0 0 2rem var(--common-black);
+  width: 75%;
+  height: 70%;
 }
 
 .title {
@@ -34,16 +39,14 @@ body {
 }
 
 .description {
-  font-size: smaller;
   margin-bottom: 20px;
 }
 
 .ticker-form {
-  /* background-color: aquamarine; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--common-black);
 }
 
@@ -60,6 +63,7 @@ body {
   padding: 6.5px;
   margin-top: 5px;
   border-radius: 10px;
+  width: 337px;
 }
 
 .ticker-form .go-button {
@@ -72,15 +76,20 @@ body {
   font-weight: bold;
   color: var(--common-white);
   background-color: var(--primary-main);
-  /* border: 1px solid var(--common-black); */
   border: none;
   box-shadow: 0px 0px 3px var(--common-black);
   border-radius: 10px;
+
+  &:hover {
+    background-color: var(--text-secondary);
+  }
 }
 
 .results {
-  /* background-color: burlywood; */
   margin-top: 15px;
+  min-height: 150px;
+  flex-grow: 1;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -89,7 +98,6 @@ body {
 
 .results .result {
   margin: 15px 5px 15px 5px;
-  /* border: 1px solid var(--common-black); */
   box-shadow: 0 0 4px var(--common-black);
   border-radius: 10px;
   display: flex;
