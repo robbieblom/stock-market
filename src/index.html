@@ -5,46 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Market</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.1/full/pyodide.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js"></script>
+    <style>
+      iframe[iframetag] {
+        border: none;
+      }
+    </style>
   </head>
   <body>
-    <div class="app-background"></div>
+    <div id="app-wrapper"></div>
 
-    <div class="app">
-      <h1 class="title">View Prices</h1>
+    <script type="text/babel">
+      const {
+        colors,
+        CssBaseline,
+        ThemeProvider,
+        Typography,
+        Container,
+        createTheme,
+        Box,
+      } = MaterialUI;
 
-      <div class="description">
-        <i
-          >Select an industry to view Weight Average Price (WAP) and Average
-          Open Price for each stock for that industry in the S&P 500
-        </i>
-      </div>
+      // Create a theme instance.
+      const theme = createTheme({
+        palette: {
+          primary: {
+            main: "#556cd6",
+          },
+          secondary: {
+            main: "#19857b",
+          },
+          error: {
+            main: colors.red.A400,
+          },
+        },
+      });
 
-      <!-- getTickerMetrics -->
-      <form
-        action=""
-        class="ticker-form"
-        onsubmit="populatePricingResults(event)"
-      >
-        <div class="industry-selector">
-          <label for="industry-selector">Industry</label>
-          <select name="industry-selector" id="industry-selector">
-            <option value="" selected>Select an Industry</option>
-          </select>
-        </div>
+      function App() {
+        return (
+          <Container maxWidth="sm">
+            <Box sx={{ my: 4 }}>
+              <Typography variant="h4" component="h1" gutterBottom>
+                Material UI CDN example
+              </Typography>
+              <div id="iframeDiv">
+                <iframe src="main.html" iframetag></iframe>
+              </div>
+            </Box>
+          </Container>
+        );
+      }
 
-        <div class="go-button">
-          <button type="submit">Go!</button>
-        </div>
-      </form>
-
-      <div class="results" id="results"></div>
-    </div>
-
-    <script src="./load-python.js"></script>
-    <script src="./populate-industry-options.js"></script>
-    <script src="./populate-pricing-results.js"></script>
-    <!-- <script src="./test.js"></script> -->
+      const root = ReactDOM.createRoot(document.getElementById("app-wrapper"));
+      root.render(
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      );
+    </script>
   </body>
 </html>
