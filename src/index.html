@@ -15,67 +15,31 @@
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@latest/dist/main.js"></script>
-    <style>
-      iframe[iframetag] {
-        border: none;
-      }
-    </style>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@1.1.9/dist/cdn/main.js"></script>
+    <link rel="stylesheet" href="./wrapper-style.css" />
   </head>
   <body>
+    <div class="app-background"></div>
+
     <div id="app-wrapper"></div>
 
     <script type="text/babel">
-      const { TestButton } = ByteTheoryUILibrary;
-      const {
-        colors,
-        CssBaseline,
-        ThemeProvider,
-        Typography,
-        Container,
-        createTheme,
-        Box,
-      } = MaterialUI;
-
-      // Create a theme instance.
-      const theme = createTheme({
-        palette: {
-          primary: {
-            main: "#556cd6",
-          },
-          secondary: {
-            main: "#19857b",
-          },
-          error: {
-            main: colors.red.A400,
-          },
-        },
-      });
+      const { TestButton, ByteTheoryTheme, GlobalLayout } = ByteTheoryUILibrary;
 
       function App() {
         return (
-          <Container maxWidth="sm">
-            <Box sx={{ my: 4 }}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                Material UI CDN example
-              </Typography>
-              <TestButton />
+          <ByteTheoryTheme mode={"light"} rebaseStyles>
+            <GlobalLayout>
               <div id="iframeDiv">
                 <iframe src="main.html" iframetag></iframe>
               </div>
-            </Box>
-          </Container>
+            </GlobalLayout>
+          </ByteTheoryTheme>
         );
       }
 
       const root = ReactDOM.createRoot(document.getElementById("app-wrapper"));
-      root.render(
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
-      );
+      root.render(<App />);
     </script>
   </body>
 </html>
