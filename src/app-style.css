@@ -94,14 +94,14 @@ body {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  align-content: flex-start;
   list-style-type: none;
 }
 
 .results .result {
   width: 200px;
   height: 41px;
-  margin: 15px 5px 15px 5px;
+  margin: 10px 10px;
   box-shadow: 0 0 4px var(--common-black);
   border-radius: 10px;
   display: flex;
@@ -109,14 +109,10 @@ body {
 }
 
 .result .result-field {
-  margin: 0px 8px 0px 8px;
+  margin: 0px 8px;
   padding: 5px;
 }
 
 .result-field .result-label {
   font-size: 0.7rem;
 }
-
-/* .result-field .result-value {
-    text-align: center;
-} */
