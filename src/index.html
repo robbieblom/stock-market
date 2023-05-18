@@ -15,7 +15,7 @@
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@1.1.9/dist/cdn/main.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@1.1.10/dist/cdn/main.js"></script>
     <link rel="stylesheet" href="./wrapper-style.css" />
   </head>
   <body>
@@ -24,16 +24,19 @@
     <div id="app-wrapper"></div>
 
     <script type="text/babel">
-      const { TestButton, ByteTheoryTheme, GlobalLayout } = ByteTheoryUILibrary;
+      const { ByteTheoryTheme, PageLoadAnim, GlobalLayout } =
+        ByteTheoryUILibrary;
 
       function App() {
         return (
           <ByteTheoryTheme mode={"light"} rebaseStyles>
-            <GlobalLayout>
-              <div id="iframeDiv">
-                <iframe src="main.html" scrolling="no" iframetag></iframe>
-              </div>
-            </GlobalLayout>
+            <PageLoadAnim>
+              <GlobalLayout>
+                <div id="iframeDiv">
+                  <iframe src="main.html" scrolling="no" iframetag></iframe>
+                </div>
+              </GlobalLayout>
+            </PageLoadAnim>
           </ByteTheoryTheme>
         );
       }
