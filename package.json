@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "serve": "live-server --open=src/"
+    "start": "live-server --open=src/"
   },
   "repository": {
     "type": "git",
