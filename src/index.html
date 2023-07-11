@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- <meta charset="UTF-8" /> -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +15,8 @@
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@5.0.26/cdn/762/index.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@5.0.26/cdn/react/index.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.3.9/cdn/547/index.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.3.9/cdn/react/index.js"></script>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -31,14 +30,81 @@
     <div id="app-wrapper"></div>
 
     <script type="text/babel">
-      const { ByteTheoryConfig, ByteTheoryTheme, GlobalLayout } =
-        ByteTheoryUILibrary.react;
+      const {
+        ByteTheoryConfig,
+        ByteTheoryTheme,
+        GlobalLayout,
+        NavModule,
+        Footer,
+        MenuIcon,
+      } = ByteTheoryUILibrary.react;
 
       function App() {
+        const navDrawerMenuItems = [
+          {
+            name: "Home",
+            url: "https://bytetheoryinnovations.com/#home",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "About",
+            url: "https://bytetheoryinnovations.com/#services",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "Projects",
+            url: "https://bytetheoryinnovations.com/#projects",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "Contact",
+            url: "https://bytetheoryinnovations.com/#contact",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+        ];
+        const logoUrl = {
+          name: "Logo",
+          url: "https://bytetheoryinnovations.com/#home",
+          options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+        };
+
+        const footerMenuItems = [
+          {
+            name: "Home",
+            url: "https://bytetheoryinnovations.com/#home",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "About",
+            url: "https://bytetheoryinnovations.com/#services",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "Projects",
+            url: "https://bytetheoryinnovations.com/#projects",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+          {
+            name: "Contact",
+            url: "https://bytetheoryinnovations.com/#contact",
+            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+          },
+        ];
+
         return (
           <ByteTheoryConfig providingLibraries={["@mui/material"]}>
             <ByteTheoryTheme mode={"light"} rebaseStyles>
-              <GlobalLayout>
+              <GlobalLayout
+                nav={
+                  <NavModule
+                    icons={[
+                      <MenuIcon key={1} menuItems={navDrawerMenuItems} />,
+                    ]}
+                    logoUrl={logoUrl}
+                  />
+                }
+                footer={<Footer footerMenuItems={footerMenuItems} />}
+              >
                 <div id="iframeDiv">
                   <iframe src="main.html" scrolling="no" iframetag></iframe>
                 </div>

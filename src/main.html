@@ -20,20 +20,16 @@
           </i>
         </div>
 
-        <form
-          action=""
-          class="ticker-form"
-          onsubmit="populatePricingResults(event)"
-        >
+        <form action="" class="ticker-form">
           <div class="industry-selector">
             <label for="industry-selector">Industry</label>
-            <select name="industry-selector" id="industry-selector">
+            <select
+              name="industry-selector"
+              id="industry-selector"
+              onchange="populatePricingResults(event)"
+            >
               <option value="" selected>Select an Industry</option>
             </select>
-          </div>
-
-          <div class="go-button">
-            <button type="submit">Go!</button>
           </div>
         </form>
 

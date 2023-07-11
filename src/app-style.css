@@ -5,6 +5,7 @@
   --text-secondary: #afc2cb;
   --common-black: #000;
   --common-white: #fff;
+  --navBarHeight: max(5vh, 100px);
 }
 
 html,
@@ -18,6 +19,7 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  padding-top: var(--navBarHeight);
   height: 100%;
 }
 
@@ -48,7 +50,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--common-black);
+  border-bottom: 3px solid var(--primary-main);
 }
 
 .ticker-form div {
@@ -64,7 +66,7 @@ body {
   padding: 6.5px;
   margin-top: 5px;
   border-radius: 10px;
-  width: 337px;
+  width: 250px;
 }
 
 .ticker-form .go-button {
