@@ -115,7 +115,7 @@ body {
 
 .results .result {
   width: 200px;
-  height: 41px;
+  height: 45px;
   margin: 10px 10px;
   box-shadow: 0 0 4px var(--common-black);
   border-radius: 10px;
