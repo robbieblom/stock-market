@@ -1,3 +1,7 @@
+:root {
+  --app-height-minimum: 800px;
+}
+
 html,
 body {
   height: 100%;
@@ -7,6 +11,7 @@ body {
 
 #iframeDiv {
   height: 100%;
+  min-height: var(--app-height-minimum);
 }
 
 iframe {
@@ -17,7 +22,6 @@ iframe {
 
 .app-background {
   height: 100%;
-  /* background-image: url("https://images.pexels.com/photos/102152/pexels-photo-102152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */
   background-image: url("./compressed.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,5 +32,6 @@ iframe {
   top: 0%;
   left: 0%;
   width: 100%;
+  min-height: var(--app-height-minimum);
   z-index: -1;
 }
