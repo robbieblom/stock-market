@@ -58,9 +58,14 @@ async function getAllSectorsAndIndustries() {
   return transformPythonSectorsAndIndustriesResponseToJS(pythonResponse);
 }
 
+function removeLoadingMessageOnSelector() {
+  document.getElementById("loading-msg").style.visibility = "hidden";
+}
+
 async function populateIndustryOptions() {
   const sectorsAndIndustriesData = await getAllSectorsAndIndustries();
   bindSectorsAndIndustriesDataToUI(sectorsAndIndustriesData);
+  removeLoadingMessageOnSelector();
 }
 
 populateIndustryOptions();
