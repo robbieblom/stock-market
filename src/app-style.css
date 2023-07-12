@@ -67,6 +67,9 @@ body {
   margin-top: 5px;
   border-radius: 10px;
   width: 250px;
+  height: 35px;
+  background-color: var(--common-white);
+  color: var(--common-black);
 }
 
 .ticker-form .go-button {
