@@ -7,16 +7,29 @@
     <title>Stock Market</title>
     <script
       crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
     ></script>
     <script
       crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.3.14/cdn/547/index.js"></script>
-    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.3.14/cdn/react/index.js"></script>
+    <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js"></script>
+    <!-- Fonts to support Material Design -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <!-- Icons to support Material Design -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.5.4/cdn/961/index.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.5.4/cdn/react/index.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.5.4/cdn/assets/index.js"></script>
+    <script src="https://unpkg.com/@bytetheoryinnovations/bytetheory-ui-library@6.5.4/cdn/theme/index.js"></script>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -36,58 +49,107 @@
         GlobalLayout,
         NavModule,
         Footer,
-        MenuIcon,
       } = ByteTheoryUILibrary.react;
+      const { Logo } = ByteTheoryUILibrary.assets;
+      const { useByteTheoryTheme } = ByteTheoryUILibrary.theme;
+      const { Button, Link } = MaterialUI;
+
+      function DocsButton({ ...props }) {
+        const theme = useByteTheoryTheme("light");
+        return (
+          <Link
+            href={"https://projects.bytetheoryinnovations.com/stock-market"}
+            target={"_blank"}
+            rel="nofollow noopener noreferrer"
+          >
+            <Button
+              variant="outlined"
+              size="small"
+              sx={{
+                borderColor: theme.palette.text.primary,
+                color: theme.palette.text.primary,
+              }}
+              endIcon={<span class="material-icons">open_in_new</span>}
+            >
+              Docs
+            </Button>
+          </Link>
+        );
+      }
 
       function App() {
         const navDrawerMenuItems = [
           {
             name: "Home",
             url: "https://bytetheoryinnovations.com/#home",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "About",
             url: "https://bytetheoryinnovations.com/#services",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "Projects",
             url: "https://bytetheoryinnovations.com/#projects",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "Contact",
             url: "https://bytetheoryinnovations.com/#contact",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
         ];
-        const logoUrl = {
+        const navLogoUrl = {
           name: "Logo",
           url: "https://bytetheoryinnovations.com/#home",
           options: { target: "_blank", rel: "noopener nofollow noreferrer" },
         };
 
-        const footerMenuItems = [
+        const linksMenuItems = [
           {
             name: "Home",
             url: "https://bytetheoryinnovations.com/#home",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "About",
             url: "https://bytetheoryinnovations.com/#services",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "Projects",
             url: "https://bytetheoryinnovations.com/#projects",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
           {
             name: "Contact",
             url: "https://bytetheoryinnovations.com/#contact",
-            options: { target: "_blank", rel: "noopener nofollow noreferrer" },
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow noreferrer",
+            },
           },
         ];
 
@@ -97,13 +159,11 @@
               <GlobalLayout
                 nav={
                   <NavModule
-                    icons={[
-                      <MenuIcon key={1} menuItems={navDrawerMenuItems} />,
-                    ]}
-                    logoUrl={logoUrl}
+                    leftIcons={[<DocsButton key={1} />]}
+                    rightIcons={[<Logo key={1} logoUrl={navLogoUrl} />]}
                   />
                 }
-                footer={<Footer footerMenuItems={footerMenuItems} />}
+                footer={<Footer linksMenuItems={linksMenuItems} />}
               >
                 <div id="iframeDiv">
                   <iframe src="main.html" scrolling="no" iframetag></iframe>
